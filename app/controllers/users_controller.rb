@@ -23,17 +23,6 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-  
-  def follower
-    user = User.find(params[:id])
-    @users = user.follower
-  end
-  
-  def followed
-    user = User.find(params[:id])
-    @users = user.followed
-  end
-    
 
   private
 
@@ -47,9 +36,4 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-  
-  def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
-  end
-  
 end
